@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-xl navbar-dark bg-dark mt-3">
+    <a class="navbar-brand" [routerLink]="['/']">
+        <img src="../assets/images/iconoNavbar.png" width="30" height="30" 
+            class="d-inline-block align-top" alt="">
+            YOUFAV
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!--Si el usuario está logueado-->
+        <ng-container *ngIf="userLoggedIn; else userNotLoggedIn">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/video-list']">Mis vídeos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/add-video']">Añadir a favoritos</a>
+                </li>
+            </ul>            
+            <ul class="navbar-nav navbar-right">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{userLoggedIn.name+' '+userLoggedIn.surname}}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" [routerLink]="['/user-settings']">
+                            Ajustes del usuario
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" (click)="logout()">Cerrar sesión</a>
+                    </div>
+                </li>
+            </ul>
+        </ng-container> 
+        <ng-template #userNotLoggedIn>
+            <ul class="navbar-nav navbar-right">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/login']">Iniciar sesión</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/register']">Registrarse</a>
+                </li>         
+            </ul>
+        </ng-template>     
+    </div>
+</nav>

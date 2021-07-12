@@ -1,0 +1,33 @@
+<div class="col-md-12 mt-3 text-center">
+    <h1>{{pageTitle}}</h1>
+    <hr>
+    <flash-messages></flash-messages>
+    <!--La propiedad "formGroup" asocia este formulario con una propiedad del componente. En el evento
+    submit le pasamos los valores de los campos-->
+    <form [formGroup]="form" class="col-md-5 ml-0 pl-0 mx-auto">
+        <label for="title">Título:</label>
+        <!--El valor del atributo "formControlName" sirva para identificarlo Angular-->
+        <input type="text" name="title" id="title" formControlName="title" 
+            class="form-control text-center">
+        <span *ngIf="checkTouched(form.get('title'))" class="invalid-feedback d-block">
+            {{wrongValidationMessage(form.get('title'), 'título')}}
+        </span>
+        <label for="description">Descripción:</label>
+        <textarea name="description" id="description" formControlName="description"
+            class="form-control text-center">
+        </textarea>
+        <span *ngIf="checkTouched(form.get('description'))" class="invalid-feedback d-block">
+            {{wrongValidationMessage(form.get('description'), 'descripción')}}
+        </span>
+        <label for="url">URL:</label>
+        <input type="url" name="url" id="url" formControlName="url"
+        class="form-control text-center" placeholder="https://youtube.com/.....">
+        <span *ngIf="checkTouched(form.get('url'))" class="invalid-feedback d-block">
+            {{wrongValidationMessage(form.get('url'), 'url')}}
+        </span><br>
+        <!--La propiedad disabled permite poner una condición, por lo que el botón se desactivará si el
+        formulario no es válido-->
+        <input type="button" value="Modificar" (click)="editVideo()" [disabled]="!form.valid" 
+            class="btn btn-success">
+    </form>
+</div>

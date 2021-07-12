@@ -1,0 +1,28 @@
+<div class="col-md-12 mt-3 text-center">
+    <h1>{{pageTitle}}</h1>
+    <hr>
+    <flash-messages></flash-messages>
+    <!--La propiedad "formGroup" asocia este formulario con una propiedad del componente. En el evento
+    submit le pasamos los valores de los campos-->
+    <form [formGroup]="form" class="col-md-5 ml-0 pl-0 mx-auto">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" formControlName="email"
+            class="form-control text-center" placeholder="ejemplo@ejemplo.ejemplo">
+        <span *ngIf="checkTouched(form.get('email'))" class="invalid-feedback d-block">
+            {{wrongValidationMessage(form.get('email'), 'email')}}
+        </span>
+        <label for="password">Contraseña:</label>
+        <input type="password" name="password" id="password" formControlName="password"
+            class="form-control text-center">
+        <span *ngIf="checkTouched(form.get('password'))" class="invalid-feedback d-block">
+            {{wrongValidationMessage(form.get('password'), 'contraseña')}}
+        </span>
+        <input type="checkbox" #check (change)="rememberEmail($event)" id="rememberEmail"
+            class="form-check-input">
+        <label class="form-check-label" for="rememberEmail">Recuerdame</label>
+        <br>
+        <!--La propiedad disabled permite poner una condición, por lo que el botón se desactivará si el
+        formulario no es válido-->
+        <input type="button" value="Iniciar sesión" (click)="login()" [disabled]="!form.valid" class="btn btn-success">
+    </form>
+</div>

@@ -1,0 +1,19 @@
+<!--Si hay vídeos-->
+<div *ngIf="video; else loading" class="col-md-12 mt3">
+    <h1 class="text-center">{{video.title}}</h1>
+    <div class="embed-responsive embed-responsive-21by9">
+        <iframe [src]="getEmbedUrl(video.url)" class="embed-responsive-item" frameborder="0" 
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+    </div>  
+    <span class="badge bg-primary text-white h6">{{'Usuario: '+video.user.name+' '+video.user.surname}}</span> 
+    <p>{{video.description}}</p>      
+</div>
+<ng-template #loading>
+    <div class="d-flex flex-column justify-content-start align-items-center vh-100">
+        <button class="btn btn-primary" type="button" disabled>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Cargando...
+        </button>
+    </div>
+</ng-template>

@@ -1,0 +1,85 @@
+<!--Si hay vídeos-->
+<div *ngIf="userVideos; else noVideos">
+    <h1 class="text-center">{{pageTitle}}</h1>
+    <hr>
+    <div *ngIf="loading" class="d-flex flex-column justify-content-center align-items-center vh-100">
+        <button class="btn btn-primary" type="button" disabled>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Cargando...
+        </button>
+    </div>
+    <!--Cards de los vídeos-->
+    <div class="card-columns w-100">
+        <article *ngFor="let video of userVideos" class="card">
+            <div class="card-body">
+                <img (click)="watchVideo(video.id)" src="{{getThumb(video.url, 'maxresdefault')}}" 
+                    alt="Miniatura del vídeo" class="card-img-top">
+                <h5 class="card-title card-header text-center">{{video.title}}</h5>
+                <p class="text-center">{{video.description||'No tiene descripción'}}</p>
+                <div class="video-buttons mt-3 d-flex justify-content-center">
+                    <a [routerLink]="['/edit-video', video.id]" class="btn btn-warning mr-3">
+                        Modificar
+                    </a>
+                    <!-- Botón que abre el modal, la directiva "attr.data-target" es para
+                    llamar a un elemento HTML con ese id y además almacena un dato -->
+                    <button type="button" class="btn btn-danger" data-toggle="modal"
+                        [attr.data-target]="'#borrar'+video.id">Borrar
+                    </button>
+                    <!-- Modal, el id irá sin # y con el id del vídeo -->
+                    <div id="{{'borrar'+video.id}}" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">                   
+                                    <h4 class="modal-title">¿Quieres borrar el vídeo?</h4>
+                                    <button type="button" 
+                                        class="close" data-dismiss="modal">&times;
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Vas a borrar definitivamente el vídeo: {{video.title}}
+                                </div>
+                                <div class="modal-footer">
+                                    <!--Para cerrar el modal cuando pulsemos hay que ponerle 
+                                    el atributo "data-dismiss"-->
+                                    <button (click)="deleteVideo(video.id)" data-dismiss="modal" 
+                                        class="btn btn-danger">Borrar
+                                    </button>
+                                    <button type="button" class="btn btn-info"
+                                        data-dismiss="modal">Cerrar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    <!--Fin del modal-->
+                    </div>
+                </div>
+            </div>
+        </article>
+    <!--Fin de los cards-->
+    </div><br>
+    <!--Paginación-->
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <!--A la ruta le pasamos un segundo parámetro con la propiedad-->
+                <a class="page-link" [routerLink]="['/video-list', prevPage]" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <!--Hacemos tantos enlaces como páginas haya-->
+            <li *ngFor="let page of totalPages" class="page-item">
+                <a class="page-link" [routerLink]="['/video-list', page]">{{page}}</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" [routerLink]="['/video-list', nextPage]" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    <!--Fin de la paginacíon-->
+    </nav>
+</div>
+<ng-template #noVideos>
+    <h3 class="text-center">No hay vídeos</h3>
+</ng-template>

@@ -1,0 +1,25 @@
+<div class="col-md-12 mt-3 text-center">
+    <div class="jumbotron mt-3 text-center">
+        <h2 class="display-4">Bienvenido a YOUFAV</h2>
+        <div *ngIf="!userLoggedIn">
+            <p class="lead">
+                Registrate en la web para añadir a favoritos tus vídeos de youtube
+            </p>
+            <hr class="my-4">
+            <p class="lead">
+                <a class="btn btn-primary btn-lg mr-3" [routerLink]="['/login']" role="button">
+                    Inicia sesión
+                </a>
+                <a class="btn btn-success btn-lg" [routerLink]="['/register']" role="button">Registrate</a>
+            </p>
+        </div>
+        <p *ngIf="userLoggedIn" class="lead">
+            <a class="btn btn-primary btn-lg mr-3" [routerLink]="['/video-list']" role="button">
+                Tus vídeos
+            </a>
+            <a class="btn btn-success btn-lg" [routerLink]="['/add-video']" role="button">
+                Añadir a favoritos
+            </a>
+        </p>
+    </div>
+</div>

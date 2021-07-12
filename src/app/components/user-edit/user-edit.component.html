@@ -1,0 +1,32 @@
+<div class="col-md-12 mt-3 text-center">
+    <h1>{{pageTitle}}</h1>
+    <hr>
+    <flash-messages></flash-messages>
+    <!--La propiedad "formGroup" asocia este formulario con una propiedad del componente. En el evento
+    submit le pasamos los valores de los campos-->
+    <form [formGroup]="form" class="col-md-5 ml-0 pl-0 mx-auto">
+        <label for="name">Nombre:</label>
+        <!--El valor del atributo "formControlName" sirva para identificarlo Angular-->
+        <input type="text" name="name" id="name" formControlName="name" class="form-control text-center" 
+            placeholder="Sólo letras con espacios">
+        <span *ngIf="checkTouched(form.get('name'))" class="invalid-feedback d-block">
+            {{wrongValidationMessage(form.get('name'), 'nombre')}}
+        </span>
+        <label for="surname">Apellidos:</label>
+        <input type="text" name="surname" id="surname" formControlName="surname"
+        class="form-control text-center" placeholder="Sólo letras con espacios">
+        <span *ngIf="checkTouched(form.get('surname'))" class="invalid-feedback d-block">
+            {{wrongValidationMessage(form.get('surname'), 'apellidos')}}
+        </span>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" formControlName="email"
+        class="form-control text-center" placeholder="ejemplo@ejemplo.ejemplo">
+        <span *ngIf="checkTouched(form.get('email'))" class="invalid-feedback d-block">
+            {{wrongValidationMessage(form.get('email'), 'email')}}
+        </span>
+        <br>
+        <!--La propiedad disabled permite poner una condición, por lo que el botón se desactivará si el
+        formulario no es válido-->
+        <input type="button" value="Modificar" (click)="editUser()" [disabled]="!form.valid" class="btn btn-success">
+    </form>
+</div>
