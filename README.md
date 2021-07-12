@@ -2,7 +2,7 @@
 Aprender Angular 12 con APIs
 
 ## Descripción
-Front-end de [Youfav-back](https://github.com/Pacorb94/Youfav-back-end).
+Front-end responsive de [Youfav-back](https://github.com/Pacorb94/Youfav-back-end).
 
 ## Requisitos
 * Node.js
