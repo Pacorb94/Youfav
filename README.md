@@ -2,10 +2,11 @@
 Aprender Angular 12 con APIs
 
 ## Descripción
-Front-end de [Youfav-back](url completa).
+Front-end responsive de [YoufavAPI](url completa).
 
 ## Requisitos
 * Node.js
+* TypeScript 4.2 (puedes probar la versión que tengas)
 * Angular
 
 ## Pasos a seguir (dentro del proyecto)
