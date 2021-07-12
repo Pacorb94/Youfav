@@ -8,7 +8,7 @@ Front-end de [Youfav-back](url completa).
 * Node.js
 * Angular
 
-## Pasos a seguir
+## Pasos a seguir (dentro del proyecto)
 1. `npm install`
 2. `ng s`
 
