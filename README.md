@@ -9,8 +9,8 @@ Front-end de [Youfav-back](url completa).
 * Angular
 
 ## Pasos a seguir (dentro del proyecto)
-1. `npm install`
-2. `ng s -o` o `ng s`
+1. `npm i` o `npm install`
+2. `ng s -o` o `ng server -o`
 
 ## Licencia
 MIT
