@@ -10,7 +10,7 @@ Front-end de [Youfav-back](url completa).
 
 ## Pasos a seguir (dentro del proyecto)
 1. `npm install`
-2. `ng s`
+2. `ng s -o` o `ng s`
 
 ## Licencia
 MIT
