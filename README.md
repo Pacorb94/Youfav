@@ -1,5 +1,5 @@
 ## Objetivo
-Aprender Angular 12 con API [Youfav-back](url completa)
+Aprender Angular 12 con APIs
 
 ## Descripción
 Front-end de [Youfav-back](url completa).
