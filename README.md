@@ -6,8 +6,7 @@ Front-end responsive de [YoufavAPI](https://github.com/Pacorb94/Youfav-back-end)
 
 ## Requisitos
 * Node.js
-* TypeScript 4.2 (puedes probar la versión que tengas)
-* Angular
+* Angular 12 (puedes probar la versión que tengas)
 
 ## Pasos a seguir (dentro del proyecto)
 1. `npm i` o `npm install`
