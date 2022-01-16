@@ -2,7 +2,8 @@
 Aprender Angular
 
 ## Descripción
-Front-end de [Youfav-API](https://github.com/Pacorb94/Youfav-API) el cual consiste en agregar vídeos a favoritos de YouTube, visualizarlos, editarlos y eliminarlos.
+Front-end de [Youfav-API](https://github.com/Pacorb94/Youfav-API).
+
 
 ## Despliegue en producción
 0. Si no tienes Docker Compose instálalo.
