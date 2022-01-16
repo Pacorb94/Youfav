@@ -1,0 +1,21 @@
+version: '3.5'
+
+#Red que compartirán todos los contenedores
+networks:
+    youfavs:
+
+services:
+
+    front-deploy:
+        #Podemos también construir la imagen nosotros con un archivo dockerfile
+        build: 
+            context: ./
+            dockerfile: nginx/dockerfile
+        container_name: front
+        #Puertos (máquina host:contenedor)
+        ports:
+            - "8081:80"
+        #Se reiniciará el contenedor a menos que se pare manualmente
+        restart: always
+        networks:
+            - youfavs
