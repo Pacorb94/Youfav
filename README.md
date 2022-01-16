@@ -1,16 +1,13 @@
 ## Objetivo
-Aprender Angular 12 con APIs
+Aprender Angular
 
 ## Descripción
-Front-end responsive de [Youfav-API](https://github.com/Pacorb94/Youfav-API).
+Front-end de [Youfav-API](https://github.com/Pacorb94/Youfav-API) el cual consiste en agregar vídeos a favoritos de YouTube, visualizarlos, editarlos y eliminarlos.
 
-## Requisitos
-* Node.js
-* Angular 12 (puedes probar la versión que tengas)
-
-## Pasos a seguir (dentro del proyecto)
-1. `npm i` o `npm install`
-2. `ng s -o` o `ng server -o`
-
+## Despliegue en producción
+0. Instala Docker con Docker Compose.
+1. Despliega [Youfav-API](https://github.com/Pacorb94/Youfav-API)
+2. Crea los contenedores `docker-compose up -d --build`
+3. En el navegador pon `http://localhost:8081`
 ## Licencia
 MIT
