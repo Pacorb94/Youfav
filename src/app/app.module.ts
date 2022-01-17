@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { routing, appRoutingProviders } from './app.routing';
+import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -38,13 +38,12 @@ import { UserVideoListComponent } from './components/user-video-list/user-video-
     imports: [
         BrowserModule,
         //Como es un módulo se carga aquí
-        routing,
+        AppRoutingModule,
         ReactiveFormsModule,
         HttpClientModule,
         FlashMessagesModule.forRoot()
     ],
     providers: [
-        appRoutingProviders,
         CheckUserGuard,
         UserLoggedInGuard,
         UserService
