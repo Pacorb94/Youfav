@@ -1,6 +1,5 @@
 import { UserLoggedInGuard } from './guards/UserLoggedIn.guard';
-//Importamos el servicio, los módulos de las rutas y los componentes
-import { ModuleWithProviders, NgModule } from "@angular/core";
+import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
