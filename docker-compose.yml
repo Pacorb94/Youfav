@@ -14,7 +14,7 @@ services:
         container_name: front
         #Puertos (máquina host:contenedor)
         ports:
-            - "8080:80"
+            - "8081:80"
         #Se reiniciará el contenedor a menos que se pare manualmente
         restart: always
         networks:
