@@ -11,8 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { AddVideoComponent } from './components/add-video/add-video.component';
 //Para que funcione el guard en todas las rutas hay que importarlo en todo el programa
-import { CheckUserGuard } from './services/CheckUser.guard';
-import { UserLoggedInGuard } from './services/UserLoggedIn.guard';
+import { CheckUserGuard } from './guards/CheckUser.guard';
+import { UserLoggedInGuard } from './guards/UserLoggedIn.guard';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { UserService } from 'src/app/services/User.service';
 import { VideoEditComponent } from './components/video-edit/video-edit.component';
