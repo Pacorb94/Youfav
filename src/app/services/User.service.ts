@@ -10,7 +10,7 @@ export class UserService{
     private token:any;
   
     constructor(private _http:HttpClient){
-        this.url='http://videosfavoritos.com/api';
+        this.url='http://localhost:8081/api';
     }
 
     /**
