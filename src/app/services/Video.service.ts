@@ -8,7 +8,7 @@ export class VideoService{
     private url:string;
 
     constructor(private _http:HttpClient){
-        this.url='http://localhost:8081/api';
+        this.url='http://localhost:8082/api';
     }
 
     /**
